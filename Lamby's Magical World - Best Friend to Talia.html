@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/benmk/Downloads/lamby-website.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamby's Magical World - Best Friend to Talia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating clouds animation */
+        .cloud {
+            position: fixed;
+            background: white;
+            border-radius: 100px;
+            opacity: 0.7;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 20%;
+            left: -100px;
+            animation-duration: 25s;
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 80px;
+            height: 35px;
+            top: 60%;
+            left: -80px;
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+
+        .cloud2::before {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: 15px;
+        }
+
+        .cloud2::after {
+            width: 50px;
+            height: 35px;
+            top: -10px;
+            right: 15px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(100vw + 200px));
+            }
+        }
+
+        /* Twinkling stars */
+        .star {
+            position: fixed;
+            background: white;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .star1 {
+            width: 20px;
+            height: 20px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .star2 {
+            width: 15px;
+            height: 15px;
+            top: 15%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .star3 {
+            width: 25px;
+            height: 25px;
+            top: 40%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .star4 {
+            width: 18px;
+            height: 18px;
+            top: 70%;
+            right: 15%;
+            animation-delay: 0.5s;
+        }
+
+        .star5 {
+            width: 22px;
+            height: 22px;
+            top: 80%;
+            left: 25%;
+            animation-delay: 1.5s;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header with Lamby's name */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🐑';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #ff6b9d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+            position: relative;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #667eea;
+            position: relative;
+        }
+
+        /* Story sections */
+        .story-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .story-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #764ba2;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 36px;
+            animation: wiggle 2s infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-10deg);
+            }
+            75% {
+                transform: rotate(10deg);
+            }
+        }
+
+        .story-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* Adventure cards */
+        .adventures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .adventure-card {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .adventure-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .adventure-card:hover::before {
+            animation: shine 0.5s ease;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .adventure-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .adventure-emoji {
+            font-size: 48px;
+            margin-bottom: 10px;
+            display: block;
+            animation: float-emoji 3s infinite ease-in-out;
+        }
+
+        @keyframes float-emoji {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .adventure-title {
+            font-size: 20px;
+            color: #2d3436;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .adventure-description {
+            font-size: 14px;
+            color: #636e72;
+            line-height: 1.4;
+        }
+
+        /* School section */
+        .school-section {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .school-section::before {
+            content: '📚';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            top: -30px;
+            right: -30px;
+            transform: rotate(-15deg);
+        }
+
+        .school-title {
+            font-size: 36px;
+            color: #6c5ce7;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .school-text {
+            font-size: 20px;
+            color: #2d3436;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Fun facts */
+        .fun-facts {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .fact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fact-item {
+            font-size: 18px;
+            color: #2d3436;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+            animation: slide-in 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .fact-item::before {
+            content: '⭐';
+            position: absolute;
+            left: 10px;
+            font-size: 20px;
+        }
+
+        .fact-item:nth-child(1) { animation-delay: 0.1s; }
+        .fact-item:nth-child(2) { animation-delay: 0.2s; }
+        .fact-item:nth-child(3) { animation-delay: 0.3s; }
+        .fact-item:nth-child(4) { animation-delay: 0.4s; }
+        .fact-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Footer message */
+        .footer-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .heart {
+            display: inline-block;
+            color: #ff6b9d;
+            font-size: 24px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .story-text {
+                font-size: 16px;
+            }
+            
+            .adventures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Rainbow text animation for special text */
+        .rainbow-text {
+            background: linear-gradient(90deg, #ff6b9d, #feca57, #48dbfb, #ff9ff3, #ff6b9d);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating decorations -->
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="star star1"></div>
+    <div class="star star2"></div>
+    <div class="star star3"></div>
+    <div class="star star4"></div>
+    <div class="star star5"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🐑 Lamby's Magical World 🐑</h1>
+            <p class="subtitle rainbow-text">Best Friend &amp; Adventure Buddy to Talia</p>
+        </header>
+
+        <!-- Lamby's Origin Story -->
+        <section class="story-section">
+            <h2 class="section-title">
+                <span class="section-icon">✨</span>
+                Where Lamby Came From
+            </h2>
+            <p class="story-text">
+                Before I met my best friend Talia, I lived in a magical place called Cloud Kingdom, high above the rainbow where all the special stuffed animals wait to meet their perfect human friend! 
+            </p>
+            <p class="story-text">
+                In Cloud Kingdom, I spent my days learning all the best ways to be a wonderful friend - how to give the softest hugs, how to chase away bad dreams, and most importantly, how to go on amazing adventures! The wise Old Bear who runs Cloud Kingdom told me that one day, a very special little girl would need me.
+            </p>
+            <p class="story-text">
+                Then, seven wonderful years ago, the stars aligned perfectly, and I floated down on a moonbeam right to baby Talia! The moment we met, I knew we were meant to be best friends forever. From that very first cuddle, we've been inseparable! 💕
+            </p>
+        </section>
+
+        <!-- Our Adventures Together -->
+        <section class="story-section">
+            <h2 class="section-title">
+                <span class="section-icon">🗺️</span>
+                Our Amazing Adventures
+            </h2>
+            <p class="story-text">
+                Talia and I have been on the most incredible adventures together! Every trip is special because we're together, and I've been right there in her backpack or arms for every magical moment!
+            </p>
+            
+            <div class="adventures-grid">
+                <div class="adventure-card">
+                    <span class="adventure-emoji">🏰</span>
+                    <div class="adventure-title">Disneyland Magic</div>
+                    <div class="adventure-description">
+                        We met Mickey Mouse and I got to ride in the teacups! Talia held me extra tight on Space Mountain. We ate churros and watched the fireworks light up the castle!
+                    </div>
+                </div>
+
+                <div class="adventure-card">
+                    <span class="adventure-emoji">🚢</span>
+                    <div class="adventure-title">Disney Cruise Adventure</div>
+                    <div class="adventure-description">
+                        We sailed the seven seas! I loved watching the dolphins from our balcony and meeting Captain Mickey. The chocolate ice cream was almost as sweet as our friendship!
+                    </div>
+                </div>
+
+                <div class="adventure-card">
+                    <span class="adventure-emoji">🏖️</span>
+                    <div class="adventure-title">San Diego &amp; La Jolla</div>
+                    <div class="adventure-description">
+                        We built sandcastles and saw the seals sunbathing! I almost got splashed by a wave, but Talia kept me safe and dry. The beach was so beautiful!
+                    </div>
+                </div>
+
+                <div class="adventure-card">
+                    <span class="adventure-emoji">🎺</span>
+                    <div class="adventure-title">New Orleans Jazz</div>
+                    <div class="adventure-description">
+                        We heard amazing music and ate beignets (I got powdered sugar on my wool!). The colorful buildings and street performers made everything feel like a party!
+                    </div>
+                </div>
+
+                <div class="adventure-card">
+                    <span class="adventure-emoji">🌊</span>
+                    <div class="adventure-title">Cannon Beach Wonders</div>
+                    <div class="adventure-description">
+                        We saw the huge Haystack Rock and searched for seashells! The misty ocean air made my wool extra fluffy, and we watched the most beautiful sunset together!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fun Facts About Lamby -->
+        <section class="fun-facts">
+            <h2 class="section-title">
+                <span class="section-icon">🌟</span>
+                Fun Facts About Me!
+            </h2>
+            <ul class="fact-list">
+                <li class="fact-item">My favorite color is pink, just like Talia's!</li>
+                <li class="fact-item">I give the BEST cuddles when Talia needs them most</li>
+                <li class="fact-item">My wool has magical powers that keep bad dreams away</li>
+                <li class="fact-item">I've been to every single one of Talia's birthday parties!</li>
+                <li class="fact-item">My favorite bedtime story is "Goodnight Moon" 🌙</li>
+            </ul>
+        </section>
+
+        <!-- School Section -->
+        <section class="school-section">
+            <h2 class="school-title">🎒 Ready for Second Grade! 🎒</h2>
+            <p class="school-text">
+                I am SO excited to start second grade with Talia and meet Ms. Hoskinson! I've been practicing my ABCs and counting all summer long. I can't wait to sit in Talia's backpack during class and hear all the amazing things she'll learn! 
+            </p>
+            <p class="school-text">
+                I promise to be the best study buddy and to give extra special good-luck hugs before every spelling test. Second grade is going to be our best year yet! 📚✏️
+            </p>
+        </section>
+
+        <!-- Footer Message -->
+        <footer class="footer-message">
+            <h2 class="section-title">
+                <span class="heart">💕</span>
+                A Message from Lamby
+            </h2>
+            <p class="story-text">
+                Dear Talia, you are the best friend a lamb could ever ask for! Thank you for taking me on all your adventures, for all the cuddles, and for loving me so much. I love you to the moon and back, around all the rainbows, and through every cloud in the sky!
+            </p>
+            <p class="story-text rainbow-text" style="font-size: 24px; font-weight: bold; margin-top: 20px;">
+                Here's to many more adventures together!
+            </p>
+            <p class="story-text" style="font-size: 20px;">
+                Love always, <br>
+                <span style="font-size: 28px;">🐑 Lamby 🐑</span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactive magic when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make adventure cards sparkle when clicked
+            const adventureCards = document.querySelectorAll('.adventure-card');
+            adventureCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1) rotate(2deg)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 300);
+                });
+            });
+
+            // Add more stars randomly
+            function createStar() {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 20 + 10 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(star);
+                
+                // Remove star after animation to prevent too many elements
+                setTimeout(() => {
+                    star.remove();
+                }, 10000);
+            }
+
+            // Create a new star every few seconds
+            setInterval(createStar, 3000);
+
+            // Make Lamby's name bounce when clicked
+            const title = document.querySelector('h1');
+            title.addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'bounce 0.5s';
+                }, 10);
+            });
+        });
+    </script>
+
+<div class="star" style="width: 18.208px; height: 18.208px; left: 93.5739%; top: 92.1398%; animation-delay: 0.0191023s;"></div><div class="star" style="width: 13.0396px; height: 13.0396px; left: 90.7676%; top: 36.3355%; animation-delay: 1.22244s;"></div><div class="star" style="width: 25.9901px; height: 25.9901px; left: 49.0065%; top: 46.8922%; animation-delay: 0.694904s;"></div></body></html>
